@@ -7,7 +7,7 @@
 'use strict';
 
 const fs = require('fs');
-// const logger = require('./classes/CLogHelper');
+const logger = require('./classes/CLogHelper');
 const config = require('./whitelist.json');
 
 const whitelisted = new Set();
