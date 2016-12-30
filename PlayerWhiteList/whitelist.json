@@ -1,0 +1,6 @@
+{
+    "kickMessage": "Sorry, you are not whitelisted on the server",
+
+    "whitelistFile": "white.list",
+    "refreshInterval": 10
+}
