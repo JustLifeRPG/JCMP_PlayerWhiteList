@@ -41,13 +41,13 @@ function parseWhitelist(file) {
 }
 
 // initial load of the whitelist
+logger.log('Loading Whitelist.', 'info');
 parseWhitelist(`${__dirname}/${config.whitelistFile}`);
-logger.log('Whitelist loaded.', 'info');
 
 // set an interval to reload it.
 setInterval(() => {
+    logger.log('Reloading whitelist.', 'info');
     parseWhitelist(`${__dirname}/${config.whitelistFile}`);
-    logger.log('Whitelist reloaded.', 'info');
 }, config.refreshInterval * 1000); // refreshInterval is in seconds
 
 jcmp.events.Add('ClientConnected', client => {
