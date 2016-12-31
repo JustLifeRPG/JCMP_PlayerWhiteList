@@ -37,6 +37,12 @@ function parseWhitelist(file) {
 
         // clear old ids
         [...whitelisted].filter(id => !newIds.includes(id)).forEach(id => whitelisted.delete(id));
+
+        // kick everyone who's not on the whitelist
+        jcmp.players.filter(player => !whitelisted.has(player.client.steamId)).forEach(player => {
+            logger.log(`Player ${player.name} is connected, but is NOT on whitelist! Kicking him`, 'warn');
+            player.Kick(config.kickMessage);
+        });
     });
 }
 
